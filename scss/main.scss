@@ -1,0 +1,454 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+@import "./utils/variables";
+@import "./utils/mixins";
+
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background-color: rgb(153, 226, 208, 0.5);
+    transition: opacity 0.75s, visibility 0.75s;
+    &::after {
+        content: "";
+        width: 75px;
+        height: 75px;
+        border: 15px solid $color-primary;
+        border-top-color: $color-secondary;
+        border-radius: 50%;
+        animation: loading 0.9s ease infinite;
+    }
+
+    @keyframes loading {
+        from { transform: rotate(0turn) }
+        to { transform: rotate(1turn) }
+    }
+
+    &.loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: $font-primary;
+    font-size: map-get($font-size, text);
+    @include txt-alignment ($align-txt: center);
+}
+
+.header{
+    @include flex-container;
+    &__logo {
+        font-family: $font-secondary;
+        background-color: $color-white;
+        font-size: map-get($font-size, logo-home);
+        cursor: $cursor;
+        padding: 10px;
+    }
+    &__search {
+        @include flex-container($direction: row);
+        background-color: darken($color-bg, 10%);
+        padding: 20px 0 20px 0;
+        gap: 15px;
+        .fa-location-dot {
+            color: darken($color-bg, 80%);
+            font-size: map-get($font-size, text);
+        }
+        input {
+            border: none;
+            outline: none;
+            font-family: $font-primary;
+            background-color: darken($color-bg, 10%);
+            color: darken($color-bg, 100%);
+            font-size: map-get($font-size, text);
+            font-weight: 600;
+            width: 150px;
+            ::placeholder {
+                color: darken($color-bg, 100%);
+            }
+        }
+    }
+
+    @include mobile-only{
+        .logo {
+            position: relative;
+            box-shadow: 0 0 5px rgb(130, 130, 130);
+        }
+    }
+
+    @include tablet-only{
+        @include flex-container($direction: row, $spacing: space-between, $alignment: baseline);
+        padding: 0 30px 0 30px;
+        width: $width-full;
+        box-shadow: 0 0 5px rgb(171, 171, 171);
+        position: relative;
+        .wrap {
+            @include flex-container($direction: row, $spacing: space-between, $alignment: baseline);
+            width: $width-full;
+        }
+        .search {
+            background-color: $color-white;
+        }
+        input {
+            background-color: $color-white;
+        }
+    }
+
+    @include desktop-only{
+        @include flex-container($direction: row, $spacing: space-between);
+        padding: 0 30px 0 30px;
+        width: $width-full;
+        box-shadow: 0 0 5px rgb(171, 171, 171);
+        position: relative;
+        .wrap {
+            @include flex-container($display: inline-flex, $direction: row, $spacing: space-between, $alignment: baseline);
+            margin: $margin;
+            width: 1024px;
+        }
+        .search {
+            background-color: $color-white;
+        }
+        input {
+            background-color: $color-white;
+        }
+    }
+}
+
+.container {
+    @include flex-container;
+}
+
+.box {
+    background-color: $color-bg;
+    padding: $padding-container;
+    &__txt {
+        h2 {
+            padding-bottom: 30px;
+        }
+    }
+}
+
+.btn {
+    font-family: $font-primary;
+    font-size: map-get($font-size, text);
+    font-weight: 400;
+    color: $color-white;
+    outline: none;
+    border: none;
+    cursor: $cursor;
+    @include txt-alignment ($align-txt: center);
+    padding: 15px 20px;
+    border-radius: map-get($border-radius, button);
+    box-shadow: $shadow;
+    background: $button;
+    margin-top: 25px;
+    &:hover {
+        transition: 0.2s ease-in;
+        filter: brightness(1.1);
+        box-shadow: 0 3px 6px rgba(#000, 0.3);
+    }
+}
+
+.steps {
+    @include flex-container;
+    padding: $padding-container;
+    margin: $margin;
+    &__title {
+        padding-bottom: 25px;
+        @include txt-alignment;
+    }
+
+    @include tablet-only{
+        .title {
+            width: $width-full;
+        }
+    }
+
+    @include desktop-only{
+        width: $width-full;
+        padding: $padding-container;
+        margin-bottom: 25px;
+        .block {
+            @include flex-container($direction: row);
+            max-width: map-get($breakpoints, desktop);
+            margin: $margin;
+            width: $width-full;
+            gap: 25px;
+        }
+        .title {
+            @include txt-alignment;
+            max-width: map-get($breakpoints, desktop);
+            width: $width-full;
+            margin: $margin;
+        }
+    }
+}
+
+.layout {
+    @include flex-container($direction: row, $alignment: baseline);
+
+    .number {
+        @include flex-container($display: inline-flex);
+        position: relative;
+        margin: -10px;
+        background-color: $color-primary;
+        color: $color-white;
+        font-family: $font-primary;
+        font-size: map-get($font-size, text);
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        padding: 4px;
+    }
+
+    .name {
+        background-color: $color-bg;
+        padding: 20px 30px 20px 35px;
+        font-family: $font-primary;
+        border-radius: map-get($border-radius, card);
+        font-size: map-get($font-size, text);
+        font-weight: 500;
+        @include txt-alignment;
+        width: $width-full;
+        max-width: 400px;
+        display: flex;
+        gap: 20px;
+        box-shadow: $shadow;
+        letter-spacing: -0.5px;
+        &:hover {
+            transition: 0.4s ease-in;
+            background-color: lighten($color-primary, 35%);
+            .fa-solid {
+                color: $color-primary;
+                margin-left: -5px;
+            }
+        }
+        .fa-solid {
+            color: $color-icon;
+            margin-left: -5px;
+        }
+    }
+
+    @include mobile-only {
+        .name {
+            margin-bottom: 25px;
+        }
+    }
+
+    @include tablet-only {
+        .name {
+            margin-bottom: 25px;
+        }
+    }
+
+    @include desktop-only {
+            width: 32%;
+    }
+}
+
+.locations {
+    @include flex-container;
+    background-color: $color-bg;
+    padding: $padding-container;
+}
+
+.restaurants {
+    @include flex-container($alignment: center);
+    width: $width-full;
+    &__title {
+        padding: 10px 0 20px 0;
+        @include txt-alignment;
+        max-width: 350px;
+        width: $width-full;
+    }
+    &__content {
+        @include flex-container($alignment: center);
+        width: $width-full;
+    }
+
+    @include tablet-only {
+        .content {
+            @include flex-container($direction: row);
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: map-get($breakpoints, tablet);
+        }
+        .card {
+            margin-bottom: 0;
+            max-width: 550px;
+            width: 48%;
+        }
+        .title {
+            @include txt-alignment;
+            max-width: map-get($breakpoints, tablet);
+            width: $width-full;
+        }
+    }
+
+    @include desktop-only {
+        .content {
+            @include flex-container($direction: row, $spacing: space-around);
+            gap: 20px;
+            max-width: map-get($breakpoints, desktop);
+        }
+        .title {
+            @include txt-alignment;
+            max-width: map-get($breakpoints, desktop);
+        }
+        .card {
+            min-width: 130px;
+        }
+    }
+}
+
+.card {
+    @include txt-alignment;
+    box-shadow: $shadow;
+    cursor: $cursor;
+    position: relative;
+    background-color: $color-white;
+    border-radius: map-get($border-radius, card);
+    min-width: 300px;
+    max-width: 350px;
+    width: $width-full;
+    margin-bottom: 20px;
+    line-height: 20px;
+    .tag {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background-color: $color-tertiary;
+        color: darken($color-tertiary, 40%);
+        padding: 5px 25px 5px 25px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 3px;
+        margin: 10px;
+        box-shadow: $shadow;
+    }
+    .preview {
+        object-fit: cover;
+        width: $width-full;
+        height: 150px;
+        border-radius: 15px 15px 0 0;
+    }
+    .info {
+        padding: 14px;
+    }
+
+    @include tablet-only{
+        .card {
+            margin-bottom: 0;
+            max-width: 550px;
+            width: 48%;
+        }
+        .title {
+            @include txt-alignment;
+            max-width: map-get($breakpoints, tablet);
+            width: $width-full;
+        }
+    }
+
+    @include desktop-only {
+        .card {
+            min-width: 130px;
+        }
+    }
+}
+
+.favourite-icon {
+    .icon-heart {
+        position: absolute;
+        right: 5px;
+        font-size: map-get($font-size, icon-heart);
+        margin: 20px;
+        transition: 0.4s ease-in;
+    }
+    
+    .icon-heart-solid {
+        position: absolute;
+        right: 5px;
+        font-size: map-get($font-size, icon-heart);
+        margin: 20px;
+        color: transparent;
+        background-image: linear-gradient($color-primary,$color-secondary);
+        -webkit-background-clip: text;
+        background-clip: text; 
+        opacity: 0;
+        transition: 0.4s ease-in;
+    }
+    &:hover {
+        .icon-heart {
+            color: transparent;
+        }
+        .icon-heart-solid {
+            opacity: 1; 
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: $color-white;
+}
+
+.footer {
+    @include flex-container($direction: row, $alignment: center);
+    position: sticky;
+    top: $width-full;
+    background-color: darken($color-bg, 70%);
+    color: $color-white;
+    @include txt-alignment;
+        &__elements {
+            line-height: 24px;
+            padding: $padding-container;
+            width: $width-full;
+            width: 400px;
+            .logo {
+                font-family: $font-secondary;
+                font-size: map-get($font-size, logo-footer);
+                padding-bottom: 20px;
+                cursor: $cursor;
+            }
+            .link {
+                @include flex-container($direction: row, $spacing: flex-start, $alignment: baseline);
+                gap: 35px;
+                cursor: $cursor;
+            }
+            .link-txt {
+                display: flex;
+                gap: 15px;
+            }
+        }
+
+        @include tablet-only{
+            .elements {
+                width: $width-full;
+            }
+        }
+
+        @include desktop-only{
+            padding: $padding-container;
+            .elements {
+                max-width: map-get($breakpoints, desktop);
+                width: $width-full;
+                padding: 0;
+            }
+        }
+}

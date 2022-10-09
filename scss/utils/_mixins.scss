@@ -1,0 +1,28 @@
+@mixin flex-container($display: flex, $direction: column, $spacing: center, $alignment: null) {
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $spacing;
+    align-items: $alignment;
+}
+
+@mixin txt-alignment ($align-txt: left) {
+    text-align: $align-txt;
+}
+
+@mixin mobile-only {
+    @media screen and (max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
+
+@mixin tablet-only {
+    @media screen and (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet)) {
+        @content;
+    }
+}
+
+@mixin desktop-only {
+    @media screen and (min-width: map-get($breakpoints, tablet)){
+        @content;
+    }
+}

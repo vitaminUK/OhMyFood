@@ -1,0 +1,28 @@
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+$color-white: #fff;
+$color-bg: #f6f6f6;
+$color-footer: #353535;
+$color-icon: darken($color-bg, 50%);
+
+$font-size: (logo-home:35px, logo-menu:30px, icon-heart:26px, logo-footer:20px, text:16px, icon:12px);
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Shrikhand', cursive;
+$font-weigth: 400;
+
+$border-radius: (card:15px, button:25px);
+
+$cursor: pointer;
+
+$margin: auto;
+
+$padding-container: 30px;
+
+$width-full: 100%;
+
+$shadow: 0 3px 6px rgba(#000, 0.16);
+
+$button: linear-gradient(-5deg, $color-primary 3%, $color-secondary 100%);
+
+$breakpoints: (mobile: 768px, tablet: 992px, desktop: 1024px);
