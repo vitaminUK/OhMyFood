@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohmyfood! Top-of-the-art menus from local restaurants</title>
+    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Shrikhand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cc30d2bf4f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="loader loader--hidden"></div>
+    <div class="content">
+        <!--header-->
+        <header class="header">
+            <div class="wrap">
+                <div class="logo header__logo">
+                    <p>ohmyfood</p>
+                </div>
+                <div class="search header__search">
+                    <div class="search__icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="input search__input">
+                        <input type="text" class="input" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <div class="box">
+                <div class="box__txt">
+                    <h2>Book the menu you like</h2>
+                    <p>Discover top-of-the-art restaurants we picked for you</p>
+                </div>
+                <button class="btn box__btn">
+                    <span class="btn-txt">Explore our restaurants</span>
+                </button>
+            </div>
+            <!--steps-->
+            <div class="steps">
+                <div class="title steps__title">
+                    <h2>How it works</h2>
+                </div>
+                <div class="block steps__block">
+                    <div class="layout steps__layout">
+                        <span class="number">1</span>
+                        <span class="name">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <p>Choose a restaurant</p>
+                        </span>
+                    </div>
+                    <div class="layout steps__layout">
+                        <span class="number">2</span>
+                        <span class="name">
+                            <i class="fa-solid fa-list-ul"></i>
+                            <p>Create your menu</p>
+                        </span>
+                    </div>
+                    <div class="layout steps__layout">
+                        <span class="number">3</span>
+                        <span class="name">
+                            <i class="fa-sharp fa-solid fa-store"></i>
+                            <p>Go enjoy it at the restaurant</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!--restaurants-->
+            <section class="locations">
+                <div class="restaurants">
+                    <div class="title restaurants__title">
+                        <h2>Restaurants</h2>
+                    </div>
+                    <div class="content restaurants__content">
+                        <div class="card restaurants__card">
+                            <div class="tag">
+                                <p>New</p>
+                            </div>
+                            <img class="preview card__preview" src="assets/restaurant_food_01.jpg" alt="restaurant-food-preview">
+                            <div class="favourite-icon">
+                                <div class="icon-heart">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                                <div class="icon-heart-solid">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="info card__info">
+                                <h4>The Full Palette</h4>
+                                <p>New York</p>
+                            </div>
+                        </div>
+                        <div class="card restaurants__card">
+                            <div class="tag">
+                                <p>New</p>
+                            </div>
+                            <img class="preview card__preview" src="assets/restaurant_food_02.jpg" alt="restaurant-food-preview">
+                            <div class="favourite-icon">
+                                <div class="icon-heart">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                                <div class="icon-heart-solid">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="info card__info">
+                                <h4>The Enchanted Plate</h4>
+                                <p>New York</p>
+                            </div>
+                        </div>
+                        <div class="card restaurants__card">
+                            <img class="preview card__preview" src="assets/restaurant_food_03.jpg" alt="restaurant-food-preview">
+                            <div class="favourite-icon">
+                                <div class="icon-heart">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                                <div class="icon-heart-solid">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="info card__info">
+                                <h4>Bastille</h4>
+                                <p>New York</p>
+                            </div>
+                        </div>
+                        <div class="card restaurants__card">
+                            <img class="preview card__preview" src="assets/restaurant_food_04.jpg" alt="restaurant-food-preview">
+                            <div class="favourite-icon">
+                                <div class="icon-heart">
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                                <div class="icon-heart-solid">
+                                    <i class="fa-solid fa-heart"></i>
+                                </div>
+                            </div>
+                            <div class="info card__info">
+                                <h4>Le Gourmand</h4>
+                                <p>New York</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--footer-->
+        <footer class="footer">
+            <div class="elements footer__elements">
+                <div class="logo elements__logo">
+                    <p>ohmyfood</p>
+                </div>
+                <div class="links footer__links">
+                    <div class="link links__link">
+                        <a class="link-txt" href="">
+                        <i class="fa-solid fa-utensils"></i>
+                        <p>Suggest a restaurant</p>
+                        </a>
+                    </div>
+                    <div class="link">
+                        <a class="link-txt" href="">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <p>Become a partner</p>
+                        </a>
+                    </div>
+                    <div class="link">
+                        <a href="">Legal</a>
+                    </div>
+                    <div class="link">
+                        <a href="mailto:webmaster@example.com">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
