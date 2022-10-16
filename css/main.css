@@ -41,7 +41,7 @@
   }
   100% {
     opacity: 0;
-    z-index: -5;
+    z-index: -10;
   }
 }
 @keyframes loader {
@@ -65,7 +65,7 @@
   }
   100% {
     opacity: 0;
-    z-index: -5;
+    z-index: -10;
   }
 }
 
