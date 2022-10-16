@@ -164,6 +164,19 @@ a {
 .layout {
     @include flex-container($direction: row);
     margin: $margin;
+    animation: slideFromTop 1.5s ease-out 0.3s 1;
+    &:nth-child(1) {
+        animation-delay: 0s;
+    }
+    &:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    &:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+    &:nth-child(4) {
+        animation-delay: 0.9s;
+    }
     .name {
         display: flex;
         flex-direction: column;
@@ -195,6 +208,17 @@ a {
         transition: transform 330ms ease-in-out;
         &:hover {
             transform: translate(-50px, 0);
+        }
+    }
+
+    @keyframes slideFromTop {
+        0% {
+          transform: translateY(25%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
         }
     }
 
