@@ -6,50 +6,52 @@
   box-sizing: inherit;
 }
 
+/*
 .loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  background-color: rgba(153, 226, 208, 0.5);
-  transition: opacity 0.75s, visibility 0.75s;
-}
-.loader::after {
-  content: "";
-  width: 75px;
-  height: 75px;
-  border: 15px solid #9356DC;
-  border-top-color: #FF79DA;
-  border-radius: 50%;
-  -webkit-animation: loading 0.9s ease infinite;
-          animation: loading 0.9s ease infinite;
-}
-@-webkit-keyframes loading {
-  from {
-    transform: rotate(0turn);
-  }
-  to {
-    transform: rotate(1turn);
-  }
-}
-@keyframes loading {
-  from {
-    transform: rotate(0turn);
-  }
-  to {
-    transform: rotate(1turn);
-  }
-}
-.loader.loader--hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    background-color: rgb(153, 226, 208, 0.8);
+    opacity: 0;
+    animation: loader 3s linear;
 
+    @keyframes loader {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+.spinner {
+    width: 75px;
+    height: 75px;
+    border: 15px solid $color-primary;
+    border-top-color: $color-secondary;
+    border-radius: 50%;
+    animation: loading 2s ease 0.2s infinite;
+
+    @keyframes loading {
+        0% {
+            transform: rotate(0deg);
+            border-width: 15px;
+        }
+        50% {
+            border-width: 2px;
+        }
+        100% {
+            transform: rotate(360deg);
+            border-width: 15px;
+        }
+    }
+}*/
 body {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
@@ -185,9 +187,9 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   background: linear-gradient(-5deg, #9356DC 3%, #FF79DA 100%);
   margin-top: 25px;
+  transition: 0.2s ease-in;
 }
 .btn:hover {
-  transition: 0.2s ease-in;
   filter: brightness(1.1);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
@@ -266,9 +268,9 @@ body {
   gap: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   letter-spacing: -0.5px;
+  transition: 0.4s ease-in;
 }
 .layout .name:hover {
-  transition: 0.4s ease-in;
   background-color: #f2eafb;
 }
 .layout .name:hover .fa-solid {
@@ -373,6 +375,8 @@ body {
   width: 100%;
   margin-bottom: 20px;
   line-height: 20px;
+  transform: scale(1);
+  transition: 0.1s ease-out;
 }
 .card .tag {
   position: absolute;
@@ -396,6 +400,9 @@ body {
 }
 .card .info {
   padding: 14px;
+}
+.card:hover {
+  transform: scale(1.01);
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .card .card {
