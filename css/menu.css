@@ -171,9 +171,11 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: relative;
   margin: auto;
-  -webkit-animation: slideFromTop 1.5s ease-out 0.3s 1;
-          animation: slideFromTop 1.5s ease-out 0.3s 1;
+  cursor: pointer;
+  -webkit-animation: slideFromTop 2s ease-out 0.3s 1;
+          animation: slideFromTop 2s ease-out 0.3s 1;
 }
 .layout:nth-child(1) {
   -webkit-animation-delay: 0s;
@@ -194,6 +196,7 @@ a {
 .layout .name {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: #fff;
   padding: 10px;
   font-family: "Roboto", sans-serif;
@@ -203,12 +206,51 @@ a {
   text-align: left;
   width: 100%;
   max-width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   margin-bottom: 15px;
   height: 65px;
+  transition: all 500ms ease-in-out;
 }
 .layout .name h3 {
   line-height: 24px;
+}
+.layout .name::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -65px;
+  width: 60px;
+  height: 65px;
+  background-color: #99E2D0;
+  border-radius: 0 15px 15px 0;
+  z-index: 1;
+  margin: auto;
+  transition: transform 600ms;
+}
+.layout .name:hover .price {
+  transform: translateX(-50px);
+}
+.layout .name:hover .fa-circle-check {
+  display: block;
+  color: #fff;
+  left: 15px;
+  transform: translateX(-25px);
+}
+.layout .name:hover::after {
+  transform: translateX(-65px);
+}
+.layout .fa-circle-check {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  text-align: right;
+  left: 500px;
+  bottom: 52px;
+  z-index: 2;
+  transition: transform 700ms;
 }
 .layout .price {
   font-size: 16px;
@@ -218,10 +260,7 @@ a {
   padding-right: 10px;
   font-weight: 600;
   color: #353535;
-  transition: transform 330ms ease-in-out;
-}
-.layout .price:hover {
-  transform: translate(-50px, 0);
+  transition: transform 500ms ease-in-out;
 }
 @-webkit-keyframes slideFromTop {
   0% {

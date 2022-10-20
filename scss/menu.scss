@@ -163,8 +163,10 @@ a {
 
 .layout {
     @include flex-container($direction: row);
+    position: relative;
     margin: $margin;
-    animation: slideFromTop 1.5s ease-out 0.3s 1;
+    cursor: pointer;
+    animation: slideFromTop 2s ease-out 0.3s 1;
     &:nth-child(1) {
         animation-delay: 0s;
     }
@@ -180,6 +182,7 @@ a {
     .name {
         display: flex;
         flex-direction: column;
+        position: relative;
         background-color: $color-white;
         padding: 10px;
         font-family: $font-primary;
@@ -189,12 +192,60 @@ a {
         @include txt-alignment;
         width: $width-full;
         max-width: 450px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         box-shadow: $shadow;
         margin-bottom: 15px;
         height: 65px;
+        transition: all 500ms ease-in-out;
+
         h3 {
             line-height: 24px;
         }
+        
+        &::after {
+            content:"";
+            position: absolute;
+            top: 0;
+            right: -65px;
+            width: 60px;
+            height: 65px;
+            background-color: $color-tertiary;
+            border-radius: 0 15px 15px 0;
+            z-index: 1;
+            margin: auto;
+            transition: transform 600ms;
+        }
+
+        &:hover {
+            .price {
+                transform: translateX(-50px);
+            }
+
+            .fa-circle-check {
+                display: block;
+                color: $color-white;
+                left: 15px;
+                transform: translateX(-25px);
+            }
+
+            &::after {
+                transform: translateX(-65px);
+                
+            }
+        }
+    }
+
+    .fa-circle-check {
+        color: white;
+        font-size: map-get($font-size, logo-footer);
+        position: relative;
+        text-align: right;
+        left: 500px;
+        bottom: 52px;
+        z-index: 2;
+        transition: transform 700ms;
     }
 
     .price {
@@ -205,10 +256,7 @@ a {
         padding-right: 10px;
         font-weight: 600;
         color: $color-footer;
-        transition: transform 330ms ease-in-out;
-        &:hover {
-            transform: translate(-50px, 0);
-        }
+        transition: transform 500ms ease-in-out;
     }
 
     @keyframes slideFromTop {
