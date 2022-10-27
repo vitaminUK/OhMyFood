@@ -26,6 +26,7 @@ body {
         padding-top: 20px;
         font-size: 25px;
         color: $color-footer;
+        cursor: pointer;
     }
     &__logo {
         font-family: $font-secondary;
@@ -161,6 +162,10 @@ a {
     }
 }
 
+h3 {
+    line-height: 24px;
+}
+
 .layout {
     @include flex-container($direction: row);
     position: relative;
@@ -192,17 +197,13 @@ a {
         @include txt-alignment;
         width: $width-full;
         max-width: 450px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         box-shadow: $shadow;
         margin-bottom: 15px;
         height: 65px;
-        transition: all 500ms ease-in-out;
-
-        h3 {
-            line-height: 24px;
-        }
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: translate 500ms ease-in-out;
         
         &::after {
             content:"";
@@ -223,29 +224,28 @@ a {
                 transform: translateX(-50px);
             }
 
-            .fa-circle-check {
+            .icon-check {
                 display: block;
                 color: $color-white;
-                left: 15px;
-                transform: translateX(-25px);
+                left: 40px;
+                transform: translateX(-50px);
             }
 
             &::after {
                 transform: translateX(-65px);
-                
             }
         }
     }
 
-    .fa-circle-check {
-        color: white;
-        font-size: map-get($font-size, logo-footer);
+    .icon-check {
         position: relative;
+        color: $color-white;
+        font-size: map-get($font-size, logo-footer);
         text-align: right;
-        left: 500px;
+        left: 450px;
         bottom: 52px;
         z-index: 2;
-        transition: transform 700ms;
+        transition: all 500ms ease-in-out;
     }
 
     .price {
@@ -269,6 +269,24 @@ a {
           opacity: 1;
         }
     }
+
+    @keyframes rotate {
+        0% {
+          rotate: 0deg;
+        }
+        25% {
+          rotate: 90deg;
+        }
+        50% {
+          rotate: 180deg;
+        }
+        75% {
+          rotate: 270deg;
+        }
+        100% {
+          rotate: 360deg;
+        }
+      }
 
     @include tablet-only {
         .name {
@@ -299,7 +317,7 @@ a {
     background: $button;
     margin: 30px 0 50px 0;
     width: 200px;
-    transition: 0.08s ease-in;
+    transition: 0.2s ease-in;
     &:hover {
         filter: brightness(1.1);
         box-shadow: 0 3px 6px rgba(#000, 0.3);

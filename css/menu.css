@@ -24,6 +24,7 @@ body {
   padding-top: 20px;
   font-size: 25px;
   color: #353535;
+  cursor: pointer;
 }
 .header__logo {
   font-family: "Shrikhand", cursive;
@@ -167,6 +168,10 @@ a {
   }
 }
 
+h3 {
+  line-height: 24px;
+}
+
 .layout {
   display: flex;
   flex-direction: row;
@@ -206,16 +211,13 @@ a {
   text-align: left;
   width: 100%;
   max-width: 450px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   margin-bottom: 15px;
   height: 65px;
-  transition: all 500ms ease-in-out;
-}
-.layout .name h3 {
-  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: translate 500ms ease-in-out;
 }
 .layout .name::after {
   content: "";
@@ -233,24 +235,24 @@ a {
 .layout .name:hover .price {
   transform: translateX(-50px);
 }
-.layout .name:hover .fa-circle-check {
+.layout .name:hover .icon-check {
   display: block;
   color: #fff;
-  left: 15px;
-  transform: translateX(-25px);
+  left: 40px;
+  transform: translateX(-50px);
 }
 .layout .name:hover::after {
   transform: translateX(-65px);
 }
-.layout .fa-circle-check {
-  color: white;
-  font-size: 20px;
+.layout .icon-check {
   position: relative;
+  color: #fff;
+  font-size: 20px;
   text-align: right;
-  left: 500px;
+  left: 450px;
   bottom: 52px;
   z-index: 2;
-  transition: transform 700ms;
+  transition: all 500ms ease-in-out;
 }
 .layout .price {
   font-size: 16px;
@@ -282,6 +284,40 @@ a {
     opacity: 1;
   }
 }
+@-webkit-keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: 90deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  75% {
+    rotate: 270deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: 90deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  75% {
+    rotate: 270deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .layout .name {
     margin-bottom: 15px;
@@ -309,7 +345,7 @@ a {
   background: linear-gradient(-5deg, #9356DC 3%, #FF79DA 100%);
   margin: 30px 0 50px 0;
   width: 200px;
-  transition: 0.08s ease-in;
+  transition: 0.2s ease-in;
 }
 .btn:hover {
   filter: brightness(1.1);
