@@ -203,7 +203,7 @@ h3 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        transition: translate 500ms ease-in-out;
+        transition: translate 700ms ease-in-out;
         
         &::after {
             content:"";
@@ -216,7 +216,7 @@ h3 {
             border-radius: 0 15px 15px 0;
             z-index: 1;
             margin: auto;
-            transition: transform 600ms;
+            transition: transform 700ms;
         }
 
         &:hover {
@@ -229,6 +229,10 @@ h3 {
                 color: $color-white;
                 left: 40px;
                 transform: translateX(-50px);
+            }
+
+            .fa-circle-check {
+                animation: rotate 800ms forwards;
             }
 
             &::after {
@@ -245,7 +249,7 @@ h3 {
         left: 450px;
         bottom: 52px;
         z-index: 2;
-        transition: all 500ms ease-in-out;
+        transition: all 700ms ease;
     }
 
     .price {
