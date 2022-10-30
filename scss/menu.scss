@@ -166,6 +166,13 @@ h3 {
     line-height: 24px;
 }
 
+.truncate-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 265px;
+}
+
 .layout {
     @include flex-container($direction: row);
     position: relative;
@@ -200,11 +207,9 @@ h3 {
         box-shadow: $shadow;
         margin-bottom: 15px;
         height: 65px;
-        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
-        transition: translate 700ms ease-in-out;
-        
+        transition: all 700ms ease-in-out;
+
         &::after {
             content:"";
             position: absolute;
@@ -214,7 +219,7 @@ h3 {
             height: 65px;
             background-color: $color-tertiary;
             border-radius: 0 15px 15px 0;
-            z-index: 1;
+            z-index: 4;
             margin: auto;
             transition: transform 700ms;
         }
@@ -235,8 +240,17 @@ h3 {
                 animation: rotate 800ms forwards;
             }
 
+            &::before {
+                transform: translateX(-65px);
+            }
+
             &::after {
                 transform: translateX(-65px);
+            }
+
+            .truncate-text {
+                animation: truncate 800ms ease forwards;
+                background-color: aquamarine;
             }
         }
     }
@@ -248,7 +262,7 @@ h3 {
         text-align: right;
         left: 450px;
         bottom: 52px;
-        z-index: 2;
+        z-index: 5;
         transition: all 700ms ease;
     }
 
@@ -276,7 +290,7 @@ h3 {
 
     @keyframes rotate {
         0% {
-          rotate: 0deg;
+            transform: rotate(0deg);
         }
         25% {
           rotate: 90deg;
@@ -290,7 +304,17 @@ h3 {
         100% {
           rotate: 360deg;
         }
-      }
+    }
+
+    @keyframes truncate {
+        0% {
+          max-width: 85%;
+        }
+        100% {
+            max-width: 70%;
+            width: 100%;
+        }
+    }
 
     @include tablet-only {
         .name {

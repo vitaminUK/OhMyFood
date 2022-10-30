@@ -172,6 +172,13 @@ h3 {
   line-height: 24px;
 }
 
+.truncate-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 265px;
+}
+
 .layout {
   display: flex;
   flex-direction: row;
@@ -214,10 +221,8 @@ h3 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   margin-bottom: 15px;
   height: 65px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-  transition: translate 700ms ease-in-out;
+  transition: all 700ms ease-in-out;
 }
 .layout .name::after {
   content: "";
@@ -228,7 +233,7 @@ h3 {
   height: 65px;
   background-color: #99E2D0;
   border-radius: 0 15px 15px 0;
-  z-index: 1;
+  z-index: 4;
   margin: auto;
   transition: transform 700ms;
 }
@@ -245,8 +250,16 @@ h3 {
   -webkit-animation: rotate 800ms forwards;
           animation: rotate 800ms forwards;
 }
+.layout .name:hover::before {
+  transform: translateX(-65px);
+}
 .layout .name:hover::after {
   transform: translateX(-65px);
+}
+.layout .name:hover .truncate-text {
+  -webkit-animation: truncate 800ms ease forwards;
+          animation: truncate 800ms ease forwards;
+  background-color: aquamarine;
 }
 .layout .icon-check {
   position: relative;
@@ -255,7 +268,7 @@ h3 {
   text-align: right;
   left: 450px;
   bottom: 52px;
-  z-index: 2;
+  z-index: 5;
   transition: all 700ms ease;
 }
 .layout .price {
@@ -290,7 +303,7 @@ h3 {
 }
 @-webkit-keyframes rotate {
   0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
   25% {
     rotate: 90deg;
@@ -307,7 +320,7 @@ h3 {
 }
 @keyframes rotate {
   0% {
-    rotate: 0deg;
+    transform: rotate(0deg);
   }
   25% {
     rotate: 90deg;
@@ -320,6 +333,24 @@ h3 {
   }
   100% {
     rotate: 360deg;
+  }
+}
+@-webkit-keyframes truncate {
+  0% {
+    max-width: 85%;
+  }
+  100% {
+    max-width: 70%;
+    width: 100%;
+  }
+}
+@keyframes truncate {
+  0% {
+    max-width: 85%;
+  }
+  100% {
+    max-width: 70%;
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
