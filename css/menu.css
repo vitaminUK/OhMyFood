@@ -306,16 +306,16 @@ h3 {
     transform: rotate(0deg);
   }
   25% {
-    rotate: 90deg;
+    transform: rotate(90deg);
   }
   50% {
-    rotate: 180deg;
+    transform: rotate(180deg);
   }
   75% {
-    rotate: 270deg;
+    transform: rotate(270deg);
   }
   100% {
-    rotate: 360deg;
+    transform: rotate(360deg);
   }
 }
 @keyframes rotate {
@@ -323,16 +323,16 @@ h3 {
     transform: rotate(0deg);
   }
   25% {
-    rotate: 90deg;
+    transform: rotate(90deg);
   }
   50% {
-    rotate: 180deg;
+    transform: rotate(180deg);
   }
   75% {
-    rotate: 270deg;
+    transform: rotate(270deg);
   }
   100% {
-    rotate: 360deg;
+    transform: rotate(360deg);
   }
 }
 @-webkit-keyframes truncate {
