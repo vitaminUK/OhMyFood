@@ -196,6 +196,7 @@ body {
     @include flex-container;
     padding: $padding-container;
     margin: $margin;
+    cursor: pointer;
     &__title {
         padding-bottom: 25px;
         @include txt-alignment;
