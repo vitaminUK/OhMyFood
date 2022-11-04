@@ -332,8 +332,9 @@ body {
 
     @include desktop-only {
         .content {
-            @include flex-container($direction: row, $spacing: space-around);
+            @include flex-container($direction: row, $spacing: space-between);
             gap: 20px;
+            flex-flow: wrap;
             max-width: map-get($breakpoints, desktop);
         }
         .title {
@@ -341,19 +342,10 @@ body {
             max-width: map-get($breakpoints, desktop);
         }
         .card {
-            min-width: 130px;
+            width: 48%;
+            max-width: 550px;
         }
     }
-}
-
-.link-tag {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .card {
@@ -391,6 +383,15 @@ body {
     }
     .info {
         padding: 14px;
+    }
+    .link-tag {
+        position:relative;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     &:hover {
         transform: scale(1.01);
@@ -443,6 +444,7 @@ body {
         }
         .icon-heart-solid {
             opacity: 1; 
+            background-color: aqua;
         }
     }
 }

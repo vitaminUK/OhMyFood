@@ -404,8 +404,9 @@ body {
   .restaurants .content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 20px;
+    flex-flow: wrap;
     max-width: 1024px;
   }
   .restaurants .title {
@@ -413,18 +414,9 @@ body {
     max-width: 1024px;
   }
   .restaurants .card {
-    min-width: 130px;
+    width: 48%;
+    max-width: 550px;
   }
-}
-
-.link-tag {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .card {
@@ -464,6 +456,15 @@ body {
 }
 .card .info {
   padding: 14px;
+}
+.card .link-tag {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .card:hover {
   transform: scale(1.01);
@@ -510,6 +511,7 @@ body {
 }
 .favourite-icon:hover .icon-heart-solid {
   opacity: 1;
+  background-color: aqua;
 }
 
 a {
