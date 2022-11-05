@@ -294,6 +294,9 @@ body {
     @include flex-container;
     background-color: $color-bg;
     padding: $padding-container;
+    @include tablet-only {
+        padding: 30px 30px 60px 30px
+    }
 }
 
 .restaurants {

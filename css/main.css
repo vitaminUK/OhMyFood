@@ -358,6 +358,11 @@ body {
   background-color: #f6f6f6;
   padding: 30px;
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .locations {
+    padding: 30px 30px 60px 30px;
+  }
+}
 
 .restaurants {
   display: flex;
